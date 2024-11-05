@@ -54,6 +54,7 @@ class SubmissionView(generics.ListCreateAPIView):
 
 
 class SubmissionUpdateView(generics.GenericAPIView):
+    serializer_class = SubmissionSerializer
     def post(self, request, *args, **kwargs):
         sub = Submission.objects.get(id=kwargs["submission_id"])
         if request.data["action"] == "complete":
